@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>rabb</groupId>
+	<artifactId>akka_chat</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>akka_chat</name>
+	<repositories>
+		<repository>
+			<id>Akka</id>
+			<name>Akka Maven2 Repository</name>
+			<url>http://www.scalablesolutions.se/akka/repository/ </url>
+		</repository>
+		<repository>
+			<id>Multiverse</id>
+			<name>Multiverse Maven2 Repository</name>
+			<url>http://multiverse.googlecode.com/svn/maven-repository/releases/</url>
+		</repository>
+		<repository>
+			<id>JBoss</id>
+			<name>JBoss Maven2 Repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public/ </url>
+		</repository>
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>se.scalablesolutions.akka</groupId>
+			<artifactId>akka-actor_2.8.0</artifactId>
+			<version>1.0-M1</version>
+		</dependency>
+		<dependency>
+			<groupId>se.scalablesolutions.akka</groupId>
+			<artifactId>akka-persistence-redis_2.8.0</artifactId>
+			<version>1.0-M1</version>
+		</dependency>
+		<dependency>
+			<groupId>se.scalablesolutions.akka</groupId>
+			<artifactId>akka-remote_2.8.0</artifactId>
+			<version>1.0-M1</version>
+		</dependency>
+		<dependency>
+			<groupId>se.scalablesolutions.akka</groupId>
+			<artifactId>akka-typed-actor_2.8.0</artifactId>
+			<version>1.0-M1</version>
+		</dependency>
+	</dependencies>
+</project>
