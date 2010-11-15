@@ -1,0 +1,9 @@
+A sample chat application using the Java API for Akka
+Basically a port of:
+* https://github.com/jboner/akka/tree/master/akka-samples/akka-sample-chat/
+
+Akka version = 1.0-M1
+Akka API = Java
+
+Outstanding issues:
+* RedisStorage doesn't seem to support the add() method. Have created a ticket.
