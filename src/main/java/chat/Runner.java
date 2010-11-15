@@ -10,11 +10,11 @@ import chat.actors.ChatService;
  */
 public class Runner {
 	public static void main(String[] args) {
-		System.out.println("***\nCreating ChatServer...\n***");
+		// Create ChatServer
 		ActorRef server = UntypedActor.actorOf(ChatService.class);
 		server.start();
 
-		System.out.println("***\nCreating ChatClient...\n***");
+		// Create ChatClient
 		ChatClient client = new ChatClient("Alex");
 		client.login();
 

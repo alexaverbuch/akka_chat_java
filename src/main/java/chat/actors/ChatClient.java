@@ -1,15 +1,5 @@
 package chat.actors;
 
-//class ChatClient(val name: String) {
-//val chat = RemoteClient.actorFor("chat:service", "localhost", 2552)
-//
-//def login = chat ! Login(name)
-//def logout = chat ! Logout(name)
-//def post(message: String) = chat ! ChatMessage(name, name + ": " + message)
-//def chatLog = (chat !! GetChatLog(name)).as[ChatLog].getOrElse(throw new
-//Exception("Couldn't get the chat log from ChatServer"))
-//}
-
 import chat.events.ChatLog;
 import chat.events.ChatMessage;
 import chat.events.GetChatLog;
@@ -31,9 +21,6 @@ public class ChatClient {
 
 		// starts and connects the client to the remote server
 		this.chat = RemoteClient.actorFor("chat:service", "localhost", 2552);
-		// this.chat =
-		// UntypedActorRef.wrap(RemoteClient.actorFor("chat:service",
-		// "localhost", 2552));
 	}
 
 	public void login() {

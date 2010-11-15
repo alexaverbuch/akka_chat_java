@@ -21,12 +21,14 @@ public class RedisChatStorage extends UntypedActor {
 	private final String CHAT_LOG = "akka.chat.log";
 	private List<byte[]> chatLog = null;
 
+	// FIXME Temp. PersistentVector seems to be buggy in 1.0-M1
 	// private PersistentVector<byte[]> chatLog = null;
 
 	public RedisChatStorage() {
-		// FIXME
+		// FIXME Find out how to do this with Java API
 		// self.lifeCycle = Permanent
 
+		// FIXME Temp. RedisStorage seems to be buggy in 1.0-M1
 		chatLog = new ArrayList<byte[]>();
 		// chatLog = RedisStorage.newVector(CHAT_LOG).asJava();
 		// chatLog = RedisStorage.newVector(CHAT_LOG);
@@ -71,6 +73,7 @@ public class RedisChatStorage extends UntypedActor {
 	}
 
 	public void postRestart(Throwable reason) {
+		// FIXME Temp. RedisStorage seems to be buggy in 1.0-M1
 		chatLog = new ArrayList<byte[]>();
 		// chatLog = RedisStorage.getVector(CHAT_LOG).asJava();
 		// chatLog = RedisStorage.getVector(CHAT_LOG);
