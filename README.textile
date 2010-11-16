@@ -13,4 +13,4 @@ Instructions:
 # Download Redis: "http://code.google.com/p/redis/downloads/list":http://code.google.com/p/redis/downloads/list
 # Build Redis: ‘make install’
 # Run Redis: ‘./redis-server’
-# Run akka-sample-chat: "https://github.com/alexaverbuch/akka_chat_java/blob/master/src/main/java/chat/Runner.java":https://github.com/alexaverbuch/akka_chat_java/blob/master/src/main/java/chat/Runner.java
+# Run akka_chat_java: "https://github.com/alexaverbuch/akka_chat_java/blob/master/src/main/java/chat/Runner.java":https://github.com/alexaverbuch/akka_chat_java/blob/master/src/main/java/chat/Runner.java
