@@ -4,22 +4,12 @@
 	<groupId>rabb</groupId>
 	<artifactId>akka_chat</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>akka_chat</name>
+	<name>akka_chat_java</name>
 	<repositories>
 		<repository>
 			<id>Akka</id>
 			<name>Akka Maven2 Repository</name>
 			<url>http://www.scalablesolutions.se/akka/repository/ </url>
-		</repository>
-		<repository>
-			<id>Multiverse</id>
-			<name>Multiverse Maven2 Repository</name>
-			<url>http://multiverse.googlecode.com/svn/maven-repository/releases/</url>
-		</repository>
-		<repository>
-			<id>JBoss</id>
-			<name>JBoss Maven2 Repository</name>
-			<url>https://repository.jboss.org/nexus/content/groups/public/ </url>
 		</repository>
 	</repositories>
 	<build>
@@ -44,16 +34,6 @@
 		<dependency>
 			<groupId>se.scalablesolutions.akka</groupId>
 			<artifactId>akka-persistence-redis_2.8.0</artifactId>
-			<version>1.0-M1</version>
-		</dependency>
-		<dependency>
-			<groupId>se.scalablesolutions.akka</groupId>
-			<artifactId>akka-remote_2.8.0</artifactId>
-			<version>1.0-M1</version>
-		</dependency>
-		<dependency>
-			<groupId>se.scalablesolutions.akka</groupId>
-			<artifactId>akka-typed-actor_2.8.0</artifactId>
 			<version>1.0-M1</version>
 		</dependency>
 	</dependencies>

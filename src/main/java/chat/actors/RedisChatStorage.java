@@ -12,6 +12,8 @@ import se.scalablesolutions.akka.actor.UntypedActor;
 import se.scalablesolutions.akka.persistence.common.PersistentVector;
 import se.scalablesolutions.akka.persistence.redis.RedisStorage;
 import se.scalablesolutions.akka.stm.global.*;
+import se.scalablesolutions.akka.config.Supervision.*;
+import se.scalablesolutions.akka.config.Supervision.LifeCycle;
 
 /**
  * Redis-backed chat storage implementation.
@@ -25,8 +27,8 @@ public class RedisChatStorage extends UntypedActor {
 	// private PersistentVector<byte[]> chatLog = null;
 
 	public RedisChatStorage() {
-		// FIXME Find out how to do this with Java API
-		// self.lifeCycle = Permanent
+		// FIXME Find out how to do 'self.lifeCycle = Permanent' in Java API
+		// getContext().setLifeCycle(permanent());
 
 		// FIXME Temp. RedisStorage seems to be buggy in 1.0-M1
 		chatLog = new ArrayList<byte[]>();
@@ -44,8 +46,8 @@ public class RedisChatStorage extends UntypedActor {
 			new Atomic() {
 				public Object atomically() {
 					try {
-						return chatLog.add(((ChatMessage) msg).getMessage()
-								.getBytes("UTF-8"));
+						chatLog.add(((ChatMessage) msg).getMessage().getBytes(
+								"UTF-8"));
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}

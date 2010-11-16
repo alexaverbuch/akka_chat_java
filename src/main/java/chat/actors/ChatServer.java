@@ -20,8 +20,8 @@ import se.scalablesolutions.akka.config.Supervision.OneForOneStrategy;
  */
 public class ChatServer extends UntypedActor {
 	private ActorRef storage = null;
-	private SessionManagement sessionManagement = null;
-	private ChatManagement chatManagement = null;
+	private SessionManagement sessionMgr = null;
+	private ChatManagement chatMgr = null;
 
 	public ChatServer() {
 		// Creates and links a RedisChatStorage
@@ -33,21 +33,20 @@ public class ChatServer extends UntypedActor {
 				5000); // within time in ms
 		getContext().setFaultHandler(faultHandler);
 
-		sessionManagement = new SessionManagement(getContext(), storage);
-		chatManagement = new ChatManagement(getContext(), sessionManagement
-				.getSessions());
+		sessionMgr = new SessionManagement(getContext(), storage);
+		chatMgr = new ChatManagement(getContext(), sessionMgr);
 
 		log().logger().info("Chat server is starting up...");
 	}
 
 	public void onReceive(final Object msg) throws Exception {
-		sessionManagement.handleReceive(msg);
-		chatManagement.handleReceive(msg);
+		sessionMgr.handleReceive(msg);
+		chatMgr.handleReceive(msg);
 	}
 
 	public void postStop() {
 		log().logger().info("Chat server is shutting down...");
-		sessionManagement.shutdownSessions();
+		sessionMgr.shutdownSessions();
 		getContext().unlink(storage);
 		storage.stop();
 	}
@@ -65,8 +64,8 @@ public class ChatServer extends UntypedActor {
 			this.storage = storage;
 		}
 
-		public Map<String, ActorRef> getSessions() {
-			return sessions;
+		public ActorRef getSession(String username) {
+			return sessions.get(username);
 		}
 
 		public void handleReceive(final Object msg) {
@@ -102,18 +101,20 @@ public class ChatServer extends UntypedActor {
 	 */
 	private class ChatManagement {
 		private ActorRef self = null;
-		private Map<String, ActorRef> sessions = null;
+		private SessionManagement sessionMgr = null;
 
-		public ChatManagement(ActorRef self, Map<String, ActorRef> sessions) {
+		public ChatManagement(ActorRef self, SessionManagement sessionMgr) {
 			this.self = self;
-			this.sessions = sessions;
+			this.sessionMgr = sessionMgr;
 		}
 
 		public void handleReceive(final Object msg) {
 			if (msg instanceof ChatMessage)
-				sessions.get(((ChatMessage) msg).getFrom()).sendOneWay(msg);
+				sessionMgr.getSession(((ChatMessage) msg).getFrom())
+						.sendOneWay(msg);
 			else if (msg instanceof GetChatLog)
-				sessions.get(((GetChatLog) msg).getFrom()).forward(msg, self);
+				sessionMgr.getSession(((GetChatLog) msg).getFrom()).forward(
+						msg, self);
 		}
 
 	}
