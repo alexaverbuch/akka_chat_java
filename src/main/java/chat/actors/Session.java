@@ -3,11 +3,10 @@ package chat.actors;
 import java.util.ArrayList;
 import java.util.List;
 
+import akka.actor.ActorRef;
+import akka.actor.UntypedActor;
 import chat.events.ChatMessage;
 import chat.events.GetChatLog;
-
-import se.scalablesolutions.akka.actor.ActorRef;
-import se.scalablesolutions.akka.actor.UntypedActor;
 
 /**
  * Internal chat client session.

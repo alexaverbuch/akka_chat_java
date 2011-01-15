@@ -9,7 +9,7 @@
 		<repository>
 			<id>Akka</id>
 			<name>Akka Maven2 Repository</name>
-			<url>http://www.scalablesolutions.se/akka/repository/ </url>
+			<url>http://akka.io/repository/ </url>
 		</repository>
 	</repositories>
 	<build>
@@ -28,13 +28,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>se.scalablesolutions.akka</groupId>
-			<artifactId>akka-actor_2.8.0</artifactId>
-			<version>1.0-M1</version>
+			<artifactId>akka-actor</artifactId>
+			<version>1.0-RC3</version>
 		</dependency>
 		<dependency>
 			<groupId>se.scalablesolutions.akka</groupId>
-			<artifactId>akka-persistence-redis_2.8.0</artifactId>
-			<version>1.0-M1</version>
+			<artifactId>akka-persistence-redis</artifactId>
+			<version>1.0-RC3</version>
 		</dependency>
 	</dependencies>
 </project>

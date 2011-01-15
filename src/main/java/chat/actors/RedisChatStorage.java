@@ -4,16 +4,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import akka.actor.UntypedActor;
+import akka.stm.Atomic;
 import chat.events.ChatLog;
 import chat.events.ChatMessage;
 import chat.events.GetChatLog;
-
-import se.scalablesolutions.akka.actor.UntypedActor;
-import se.scalablesolutions.akka.persistence.common.PersistentVector;
-import se.scalablesolutions.akka.persistence.redis.RedisStorage;
-import se.scalablesolutions.akka.stm.global.*;
-import se.scalablesolutions.akka.config.Supervision.*;
-import se.scalablesolutions.akka.config.Supervision.LifeCycle;
 
 /**
  * Redis-backed chat storage implementation.

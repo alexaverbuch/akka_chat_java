@@ -1,7 +1,8 @@
 package chat;
 
-import se.scalablesolutions.akka.actor.ActorRef;
-import se.scalablesolutions.akka.actor.UntypedActor;
+import akka.actor.ActorRef;
+import akka.actor.Actors;
+import akka.actor.UntypedActor;
 import chat.actors.ChatClient;
 import chat.actors.ChatService;
 
@@ -11,7 +12,7 @@ import chat.actors.ChatService;
 public class Runner {
 	public static void main(String[] args) {
 		// Create ChatServer
-		ActorRef server = UntypedActor.actorOf(ChatService.class);
+		ActorRef server = Actors.actorOf(ChatService.class);
 		server.start();
 
 		// Create ChatClient

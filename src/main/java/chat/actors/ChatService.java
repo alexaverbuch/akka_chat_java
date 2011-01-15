@@ -1,6 +1,7 @@
 package chat.actors;
 
-import se.scalablesolutions.akka.remote.RemoteNode;
+
+import akka.actor.Actors;
 
 /**
  * Class encapsulating the full Chat Service. Start service by invoking:
@@ -11,7 +12,7 @@ import se.scalablesolutions.akka.remote.RemoteNode;
  */
 public class ChatService extends ChatServer {
 	public void preStart() {
-		RemoteNode.start("localhost", 2552);
-		RemoteNode.register("chat:service", getContext());
+		Actors.remote().start("localhost", 2552);
+		Actors.remote().register("chat:service", getContext());
 	}
 }

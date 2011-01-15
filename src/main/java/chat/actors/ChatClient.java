@@ -1,12 +1,12 @@
 package chat.actors;
 
+import akka.actor.ActorRef;
+import akka.actor.Actors;
 import chat.events.ChatLog;
 import chat.events.ChatMessage;
 import chat.events.GetChatLog;
 import chat.events.Login;
 import chat.events.Logout;
-import se.scalablesolutions.akka.actor.ActorRef;
-import se.scalablesolutions.akka.remote.RemoteClient;
 
 /**
  * Chat client.
@@ -20,11 +20,11 @@ public class ChatClient {
 		this.name = name;
 
 		// starts and connects the client to the remote server
-		this.chat = RemoteClient.actorFor("chat:service", "localhost", 2552);
+        this.chat = Actors.remote().actorFor("chat:service", "localhost", 2552);
 	}
 
 	public void login() {
-		chat.sendOneWay(new Login(name));
+        chat.sendOneWay(new Login(name));
 	}
 
 	public void logout() {
