@@ -29,12 +29,12 @@
 		<dependency>
 			<groupId>se.scalablesolutions.akka</groupId>
 			<artifactId>akka-actor</artifactId>
-			<version>1.0-RC3</version>
+			<version>1.0-RC5</version>
 		</dependency>
 		<dependency>
 			<groupId>se.scalablesolutions.akka</groupId>
 			<artifactId>akka-persistence-redis</artifactId>
-			<version>1.0-RC3</version>
+			<version>1.0-RC5</version>
 		</dependency>
 	</dependencies>
 </project>
