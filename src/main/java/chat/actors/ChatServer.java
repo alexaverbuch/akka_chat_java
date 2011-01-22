@@ -27,24 +27,24 @@ public class ChatServer extends UntypedActor {
         storage = getContext().spawnLink(RedisChatStorage.class);
 
         Supervision.FaultHandlingStrategy faultHandler = new Supervision.OneForOneStrategy(
-                new Class[]{Exception.class}, // exceptions to handle
-                3, // max restart retries
-                5000); // within time in ms
+                null, // exceptions to handle
+                null, // max restart retries
+                null); // within time in ms
         getContext().setFaultHandler(faultHandler);
 
         sessionMgr = new SessionManagement(getContext(), storage);
         chatMgr = new ChatManagement(getContext(), sessionMgr);
 
-        log().logger().info("Chat server is starting up...");
+        logger().info("Chat server is starting up...");
     }
 
-    public void onReceive(final Object msg) throws Exception {
+    public void onReceive(final Object msg) {
         sessionMgr.handleReceive(msg);
         chatMgr.handleReceive(msg);
     }
 
     public void postStop() {
-        log().logger().info("Chat server is shutting down...");
+        logger().info("Chat server is shutting down...");
         sessionMgr.shutdownSessions();
         getContext().unlink(storage);
         storage.stop();
@@ -77,14 +77,14 @@ public class ChatServer extends UntypedActor {
                 });
                 session.start();
                 sessions.put(((Login) msg).getUser(), session);
-                log().logger().info("User [%s] has logged in", username);
+                logger().info("User [%s] has logged in", username);
 
             } else if (msg instanceof Logout) {
                 String username = ((Logout) msg).getUser();
                 ActorRef session = sessions.get(username);
                 session.stop();
                 sessions.remove(username);
-                log().logger().info("User [%s] has logged out", username);
+                logger().info("User [%s] has logged out", username);
             }
         }
 
