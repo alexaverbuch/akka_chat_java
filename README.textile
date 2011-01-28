@@ -2,7 +2,7 @@ A sample chat application using the Java API for Akka
 Basically a port of:
 "https://github.com/jboner/akka/tree/master/akka-samples/akka-sample-chat/":https://github.com/jboner/akka/tree/master/akka-samples/akka-sample-chat/
 
-Akka version = 1.0-M1
+Akka version = 1.0-RC5
 Akka API = Java
 
 Outstanding issues:
