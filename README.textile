@@ -5,8 +5,12 @@ Basically a port of:
 Akka version = 1.0-RC5
 Akka API = Java
 
-Instructions:
+h3. Instructions
 # Download Redis: "http://code.google.com/p/redis/downloads/list":http://code.google.com/p/redis/downloads/list
 # Build Redis: ‘make install’
 # Run Redis: ‘./redis-server’
 # Run akka_chat_java: "https://github.com/alexaverbuch/akka_chat_java/blob/master/src/main/java/chat/Runner.java":https://github.com/alexaverbuch/akka_chat_java/blob/master/src/main/java/chat/Runner.java
+
+h3. Acknowledgements
+Developed: "Alex Averbuch":https://github.com/alexaverbuch
+Migrated to latest Akka version: "Matt Abrams":https://github.com/abramsm
