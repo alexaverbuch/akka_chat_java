@@ -5,10 +5,6 @@ Basically a port of:
 Akka version = 1.0-RC5
 Akka API = Java
 
-Outstanding issues:
-* RedisStorage doesn't seem to support the add() method. Have created a ticket.
-* I haven't figured out what the Java API version of "self.lifeCycle = Permanent" is yet. Todo.
-
 Instructions:
 # Download Redis: "http://code.google.com/p/redis/downloads/list":http://code.google.com/p/redis/downloads/list
 # Build Redis: ‘make install’
