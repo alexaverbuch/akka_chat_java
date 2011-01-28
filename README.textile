@@ -12,5 +12,6 @@ h3. Instructions
 # Run akka_chat_java: "https://github.com/alexaverbuch/akka_chat_java/blob/master/src/main/java/chat/Runner.java":https://github.com/alexaverbuch/akka_chat_java/blob/master/src/main/java/chat/Runner.java
 
 h3. Acknowledgements
+
 Developed: "Alex Averbuch":https://github.com/alexaverbuch
 Migrated to latest Akka version: "Matt Abrams":https://github.com/abramsm
